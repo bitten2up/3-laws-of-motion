@@ -202,7 +202,7 @@ int main()
         {
             float deltaTime = clock.restart().asSeconds();
             if (ballmove){
-		   ballAngle = 0;
+		   ballAngle = pi - 0;
                  ball.setPosition(leftPaddle.getPosition().x + ballRadius + paddleSize.x / 2 + 0.1f, ball.getPosition().y);
             }
             if(!battle){ // revoke player movement in battles, we will using a different object for menu and we don't want the player moving in the menus, if it is not an battle you can move normaly
