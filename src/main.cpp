@@ -43,12 +43,13 @@ SOFTWARE.
 int main()
 {
     std::srand(static_cast<unsigned int>(std::time(NULL)));
-    std::cout << "Bitten's Adventure\nVersion " << version << std::endl;
+    std::cout << "THE 3 LAWS OF NEWTON\nVersion " << version << std::endl;
     bool battle = false;
     bool up = false;
     bool down = true;
     bool left = true;
     bool right = false;
+    bool ballmove = false;
     #ifdef debug
     std::cout << "DEBUG VERSION" << std::endl;
     #endif
@@ -65,7 +66,7 @@ int main()
     // define map loading (unused at the moment for the prototype)
     // ofstream map;
     // Create the window of the application
-    sf::RenderWindow window(sf::VideoMode(gameWidth, gameHeight, 32), "Bitten's Adventure",
+    sf::RenderWindow window(sf::VideoMode(gameWidth, gameHeight, 32), "THE 3 LAWS OF NEWTON",
                             sf::Style::Titlebar | sf::Style::Close);
     window.setVerticalSyncEnabled(true);
     window.setActive();
@@ -140,7 +141,7 @@ int main()
     pauseMessage.setCharacterSize(20);
     pauseMessage.setPosition(170.f, 150.f);
     pauseMessage.setFillColor(sf::Color::White);
-    pauseMessage.setString("Bitten's Adventure\n\n\nPRESS START\n\n\n\n\n\n                                   VERSION 0.001");
+    pauseMessage.setString("THE 3 LAWS OF NEWTON");
     // Initilize the opponet text for battles
     sf::Text battleText;
     battleText.setFont(font);
@@ -172,11 +173,6 @@ int main()
                 break;
                 isPlaying = true;
             }
-	    #ifdef battleTest
-	    leftPaddle.setPosition(10 + paddleSize.x / 2, gameHeight / 2);
-            rightPaddle.setPosition(gameWidth - 10 - paddleSize.x / 2, gameHeight / 2);
-            ball.setPosition(gameWidth / 2, gameHeight / 2);
-	    #endif
             // enter key pressed: play
             if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Enter))
             {
@@ -205,6 +201,9 @@ int main()
         if (isPlaying)
         {
             float deltaTime = clock.restart().asSeconds();
+            if (ballmove){
+                 ball.setPosition(leftPaddle.getPosition().x + ballRadius + paddleSize.x / 2 + 0.1f, ball.getPosition().y);
+            }
             if(!battle){ // revoke player movement in battles, we will using a different object for menu and we don't want the player moving in the menus, if it is not an battle you can move normaly
                 // Move the player's paddle
                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) &&
@@ -325,12 +324,13 @@ int main()
                 leftPaddle.setPosition(10.f, 50.f);
                 rightPaddle.setPosition(gameWidth - 10 - paddleSize.x / 2, gameHeight / 2);
                 ball.setPosition(gameWidth / 5, gameHeight / 5);
-		        battle = true;
-			    battleText.setCharacterSize(10);
-		        battleText.setString("A wild box appered and the circle is not friendly anymore. 0_0");
+		battle = true;
+		battleText.setCharacterSize(10);
+		battleText.setString("An object in rest will stay in rest, an object in motion will stay in motion unless an unballenced force happened");
                 leftPaddle.setPosition(10 + paddleSize.x / 2, gameHeight / 2);
                 crusor.setPosition(100 + paddleSize.x / 2, gameHeight - paddleSize.y);
                 crusor.rotate(45);
+                ballmove = false;
             }
             if (ball.getPosition().y - ballRadius < 0.f)
             {
@@ -360,6 +360,7 @@ int main()
 
                 ballSound.play();
                 ball.setPosition(leftPaddle.getPosition().x + ballRadius + paddleSize.x / 2 + 0.1f, ball.getPosition().y);
+                ballmove = true;
             }
 	    // Right Paddle
 	    #ifndef debug
