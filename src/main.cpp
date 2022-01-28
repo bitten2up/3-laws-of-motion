@@ -202,8 +202,10 @@ int main()
         {
             float deltaTime = clock.restart().asSeconds();
             if (ballmove){
-		   ballAngle = pi - 0;
+		 ballAngle = pi - 0;
                  ball.setPosition(leftPaddle.getPosition().x + ballRadius + paddleSize.x / 2 + 0.1f, ball.getPosition().y);
+		 sf::RenderWindow window(sf::VideoMode(gameWidth, gameHeight, 32), "THE 3 LAWS OF NEWTON",
+                            sf::Style::Titlebar | sf::Style::Close);
             }
             if(!battle){ // revoke player movement in battles, we will using a different object for menu and we don't want the player moving in the menus, if it is not an battle you can move normaly
                 // Move the player's paddle
