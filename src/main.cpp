@@ -203,7 +203,7 @@ int main()
             float deltaTime = clock.restart().asSeconds();
             if (ballmove){
 		 ballAngle = pi - 0;
-                 ball.setPosition(leftPaddle.getPosition().x + ballRadius + paddleSize.x / 2 + 0.1f, ball.getPosition().y);
+                 ball.move(std::cos(ballAngle) * factor, std::sin(ballAngle) * factor);
 		 sf::RenderWindow window(sf::VideoMode(gameWidth, gameHeight, 32), "THE 3 LAWS OF NEWTON",
                             sf::Style::Titlebar | sf::Style::Close);
             }
