@@ -161,6 +161,9 @@ int main()
     bool isPlaying = true;
     bool law2 = false;
     bool law3 = false;
+    leftPaddle.setPosition(10 + paddleSize.x / 2, gameHeight / 2);
+    rightPaddle.setPosition(gameWidth - 10 - paddleSize.x / 2, gameHeight / 2);
+    ball.setPosition(gameWidth / 2, gameHeight / 2);
     while (window.isOpen())
     {
         // Handle events
