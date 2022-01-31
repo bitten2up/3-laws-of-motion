@@ -158,7 +158,9 @@ int main()
     float ballAngle         = 0.f; // to be changed later
 
     sf::Clock clock;
-    bool isPlaying = false;
+    bool isPlaying = true;
+    bool law2 = false;
+    bool law3 = false;
     while (window.isOpen())
     {
         // Handle events
@@ -173,31 +175,6 @@ int main()
                 break;
                 isPlaying = true;
             }
-            // enter key pressed: play
-            if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Enter))
-            {
-                if (!isPlaying)
-                {
-                    // (re)start the game
-                    isPlaying = true;
-                    clock.restart();
-
-                    // Reset the position of the paddles and ball
-                    leftPaddle.setPosition(10 + paddleSize.x / 2, gameHeight / 2);
-                    rightPaddle.setPosition(gameWidth - 10 - paddleSize.x / 2, gameHeight / 2);
-                    ball.setPosition(gameWidth / 2, gameHeight / 2);
-
-                    // Reset the ball angle
-                    do
-                    {
-                        // Make sure the ball initial angle is not too much vertical
-                        ballAngle = 0;
-                    }
-                    while (std::abs(std::cos(ballAngle)) < 0.7f);
-                }
-            }
-        }
-
         if (isPlaying)
         {
             float deltaTime = clock.restart().asSeconds();
@@ -327,7 +304,7 @@ int main()
                 ball.setPosition(gameWidth / 5, gameHeight / 5);
 		battle = true;
 		battleText.setCharacterSize(10);
-		battleText.setString("An object in rest will stay in rest, an object in motion will stay in motion unless an unballenced force happened");
+		pauseMessage.setString("An object in rest will stay in rest,\n an object in motion will stay in motion unless an unballenced force happened");
                 leftPaddle.setPosition(10 + paddleSize.x / 2, gameHeight / 2);
                 crusor.setPosition(100 + paddleSize.x / 2, gameHeight - paddleSize.y);
                 crusor.rotate(45);
