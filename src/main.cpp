@@ -313,6 +313,7 @@ int main()
                 crusor.setPosition(100 + paddleSize.x / 2, gameHeight - paddleSize.y);
                 crusor.rotate(45);
                 ballmove = false;
+		isPlaying = false;
             }
             if (ball.getPosition().y - ballRadius < 0.f)
             {
