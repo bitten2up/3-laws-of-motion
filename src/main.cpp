@@ -191,7 +191,7 @@ int main()
                     do
                     {
                         // Make sure the ball initial angle is not too much vertical
-                        ballAngle = (std::rand() % 360) * 2 * pi / 360;
+                        ballAngle = 0;
                     }
                     while (std::abs(std::cos(ballAngle)) < 0.7f);
                 }
@@ -204,8 +204,6 @@ int main()
             if (ballmove){
 		 float factor = ballSpeed * deltaTime;
                  ball.move(std::cos(ballAngle) * factor, std::sin(ballAngle) * factor);
-		 sf::RenderWindow window(sf::VideoMode(gameWidth, gameHeight, 32), "THE 3 LAWS OF NEWTON",
-                            sf::Style::Titlebar | sf::Style::Close);
             }
             if(!battle){ // revoke player movement in battles, we will using a different object for menu and we don't want the player moving in the menus, if it is not an battle you can move normaly
                 // Move the player's paddle
