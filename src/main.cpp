@@ -193,7 +193,7 @@ int main()
                         // Make sure the ball initial angle is not too much vertical
                         ballAngle = 0;
                     }
-                    while (std::abs(std::cos(ballAngle)) > 0.7f);
+                    while (std::abs(std::cos(ballAngle)) < 0.7f);
                 }
             }
         }
