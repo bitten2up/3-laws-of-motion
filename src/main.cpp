@@ -175,6 +175,7 @@ int main()
                 break;
                 isPlaying = true;
             }
+	}
         if (isPlaying)
         {
             float deltaTime = clock.restart().asSeconds();
