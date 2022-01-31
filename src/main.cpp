@@ -193,7 +193,7 @@ int main()
                         // Make sure the ball initial angle is not too much vertical
                         ballAngle = 0;
                     }
-                    while (std::abs(std::cos(ballAngle)) < 0.7f);
+                    while (std::abs(std::cos(ballAngle)) > 0.7f);
                 }
             }
         }
@@ -336,14 +336,12 @@ int main()
             if (ball.getPosition().y - ballRadius < 0.f)
             {
                 ballSound.play();
-                ballAngle = -ballAngle;
                 ball.setPosition(ball.getPosition().y, ballRadius + 0.1f);
 		leftPaddle.setPosition(1,1);
             }
             if (ball.getPosition().y + ballRadius > gameHeight)
             {
                 ballSound.play();
-                ballAngle = -ballAngle;
                 ball.setPosition(ball.getPosition().x, gameHeight - ballRadius - 0.1f);
             }
 
@@ -353,11 +351,7 @@ int main()
                 ball.getPosition().x - ballRadius > leftPaddle.getPosition().x &&
                 ball.getPosition().y + ballRadius >= leftPaddle.getPosition().y - paddleSize.y / 2 &&
                 ball.getPosition().y - ballRadius <= leftPaddle.getPosition().y + paddleSize.y / 2)
-            {
-                if (ball.getPosition().y > leftPaddle.getPosition().y)
-                    ballAngle = pi - ballAngle + (std::rand() % 20) * pi / 180;
-                else
-                    ballAngle = pi - ballAngle - (std::rand() % 20) * pi / 180;
+	    {
 
                 ballSound.play();
                 ball.setPosition(leftPaddle.getPosition().x + ballRadius + paddleSize.x / 2 + 0.1f, ball.getPosition().y);
