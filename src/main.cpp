@@ -25,6 +25,7 @@ SOFTWARE.
 // Headers
 ////////////////////////////////////////////////////////////
 #include <iostream>
+#include <cstdlib>
 std::cout << "iostream" << std::endl;
 printf("adding sfml graphics");
 #include <SFML/Graphics.hpp>
@@ -35,8 +36,6 @@ std::cout << "audio" << std::endl;
 std::cout << "cmath" << std::endl;
 #include <ctime>
 std::cout << "ctime" << std::endl;
-#include <cstdlib>
-std::cout << "cstdlib" << std::endl;
 #include <string>
 std::cout << "string" << std::endl;
 #include <fstream>
