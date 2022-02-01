@@ -45,6 +45,7 @@ int main()
 {
     std::srand(static_cast<unsigned int>(std::time(NULL)));
     std::cout << "THE 3 LAWS OF NEWTON\nVersion " << version << std::endl;
+    std::cout << "sources for the information is here: https://www.britannica.com/science/Newtons-laws-of-motion" << std::endl;
     bool battle = false;
     bool up = false;
     bool down = true;
@@ -68,33 +69,33 @@ int main()
     myfile >> savedata; // writes the information from the file to a buffer for later use
     myfile.close();
     int force = 1;
-    ifstream myfile("law2/F.txt", ios::in); // open the savefile
-    if (!myfile.is_open()){
-        std::ofstream outfile ("law2/F.txt");
-        outfile << 1;
-        outfile.close();
+    ifstream forcefile("law2/F.txt", ios::in); // open the savefile
+    if (!forcefile.is_open()){
+        std::ofstream outfile1 ("law2/F.txt");
+        outfile1 << 1;
+        outfile1.close();
     }
-    myfile >> force;
-    myfile.close();
+    forcefile >> force;
+    forcefile.close();
     int mass = 1;
-    ifstream myfile("law2/m.txt", ios::in); // open the savefile
-    if (!myfile.is_open()){
-        std::ofstream outfile ("law2/m.txt");
-        outfile << 1;
-        outfile.close();
+    ifstream myfile2("law2/m.txt", ios::in); // open the savefile
+    if (!myfile2.is_open()){
+        std::ofstream outfile2 ("law2/m.txt");
+        outfile2 << 1;
+        outfile2.close();
     }
-    myfile >> mass;
-    myfile.close();
+    myfile2 >> mass;
+    myfile2.close();
     int acceleration = 1;
-    ifstream myfile("law2/a.txt", ios::in); // open the savefile
-    if (!myfile.is_open()){
-        std::ofstream outfile ("law2/a.txt");
-        outfile << 1;
-        outfile.close();
+    ifstream myfile3("law2/a.txt", ios::in); // open the savefile
+    if (!myfile3.is_open()){
+        std::ofstream outfile3 ("law2/a.txt");
+        outfile3 << 1;
+        outfile3.close();
         std::cout <<  "you can edit the values in the law 2 folder then edit the text to the value you want, ONLY USE INTERGERS DON'T PUT THE UNITS" << std::endl;
     }
-    myfile >> acceleration;
-    myfile.close();
+    myfile3 >> acceleration;
+    myfile3.close();
     // Define some constants
     const float pi = 3.14159f;
     const int gameWidth = 800;
