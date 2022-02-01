@@ -25,27 +25,25 @@ SOFTWARE.
 // Headers
 ////////////////////////////////////////////////////////////
 #include <iostream>
-printf("iostream added");
+std::cout << "iostream" << std::endl;
 printf("adding sfml graphics");
 #include <SFML/Graphics.hpp>
-printf("sfml graphics added");
-printf("adding sfml audio");
+std::cout << "graphics" << std::endl;
 #include <SFML/Audio.hpp>
-printf("sfml audio added\nadding cmath");
+std::cout << "audio" << std::endl;
 #include <cmath>
-printf("added cmath\nadding ctime");
+std::cout << "cmath" << std::endl;
 #include <ctime>
-printf("added ctime\nadding cstdlib");
+std::cout << "ctime" << std::endl;
 #include <cstdlib>
-printf("added cstdlib\nadding string");
+std::cout << "cstdlib" << std::endl;
 #include <string>
-printf("added string\nadding fstream");
+std::cout << "string" << std::endl;
 #include <fstream>
-printf("added fstream\nadding bittendef.h");
+std::cout << "fstream" << std::endl;
 #include "bittendef.h"
-printf("added bittendef.h\nadding version.h");
 #include "version.h"
-printf("added version.h\nALL HEADERS LOADED");
+std::cout << "all headers loaded" << std::endl;
 ////////////////////////////////////////////////////////////
 /// Entry point of application
 ///
