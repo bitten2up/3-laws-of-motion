@@ -62,7 +62,7 @@ int main()
     ifstream myfile("bitten.sav", ios::in); // open the savefile
     if (!myfile.is_open()){
         std::ofstream outfile ("bitten.sav");
-        outfile << "[bitten engine save file]\n";
+        outfile << "[bitten-engine-save-file]\n";
         outfile.close();
     }
     myfile >> savedata; // writes the information from the file to a buffer for later use
