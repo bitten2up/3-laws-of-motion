@@ -43,9 +43,9 @@ printf("added string\nadding fstream");
 #include <fstream>
 printf("added fstream\nadding bittendef.h");
 #include "bittendef.h"
-printf("added bittendef.h\nadding version.h")
+printf("added bittendef.h\nadding version.h");
 #include "version.h"
-printf("added version.h\nALL HEADERS LOADED")
+printf("added version.h\nALL HEADERS LOADED");
 ////////////////////////////////////////////////////////////
 /// Entry point of application
 ///
