@@ -26,23 +26,14 @@ SOFTWARE.
 ////////////////////////////////////////////////////////////
 #include <iostream>
 #include <cstdlib>
-std::cout << "iostream" << std::endl;
-printf("adding sfml graphics");
 #include <SFML/Graphics.hpp>
-std::cout << "graphics" << std::endl;
 #include <SFML/Audio.hpp>
-std::cout << "audio" << std::endl;
 #include <cmath>
-std::cout << "cmath" << std::endl;
 #include <ctime>
-std::cout << "ctime" << std::endl;
 #include <string>
-std::cout << "string" << std::endl;
 #include <fstream>
-std::cout << "fstream" << std::endl;
 #include "bittendef.h"
 #include "version.h"
-std::cout << "all headers loaded" << std::endl;
 ////////////////////////////////////////////////////////////
 /// Entry point of application
 ///
