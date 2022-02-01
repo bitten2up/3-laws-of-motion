@@ -67,6 +67,34 @@ int main()
     }
     myfile >> savedata; // writes the information from the file to a buffer for later use
     myfile.close();
+    int force = 1;
+    ifstream myfile("law2/F.txt", ios::in); // open the savefile
+    if (!myfile.is_open()){
+        std::ofstream outfile ("law2/F.txt");
+        outfile << 1;
+        outfile.close();
+    }
+    myfile >> force;
+    myfile.close();
+    int mass = 1;
+    ifstream myfile("law2/m.txt", ios::in); // open the savefile
+    if (!myfile.is_open()){
+        std::ofstream outfile ("law2/m.txt");
+        outfile << 1;
+        outfile.close();
+    }
+    myfile >> mass;
+    myfile.close();
+    int acceleration = 1;
+    ifstream myfile("law2/a.txt", ios::in); // open the savefile
+    if (!myfile.is_open()){
+        std::ofstream outfile ("law2/a.txt");
+        outfile << 1;
+        outfile.close();
+        std::cout <<  "you can edit the values in the law 2 folder then edit the text to the value you want, ONLY USE INTERGERS DON'T PUT THE UNITS" << std::endl
+    }
+    myfile >> acceleration;
+    myfile.close();
     // Define some constants
     const float pi = 3.14159f;
     const int gameWidth = 800;
