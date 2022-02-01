@@ -34,6 +34,7 @@ SOFTWARE.
 #include <fstream>
 #include "bittendef.h"
 #include "version.h"
+using namespace std;
 ////////////////////////////////////////////////////////////
 /// Entry point of application
 ///
@@ -57,6 +58,15 @@ int main()
     std::cout << "BATTLE TEST" << std::endl;
     battle = true;
     #endif
+    string savedata = ""; // init the savedata var for storage
+    ifstream myfile("bitten.sav", ios::in); // open the savefile
+    if (!myfile.isOpen){
+        std::ofstream outfile ("bitten.sav");
+        outfile << "[bitten engine save file]\n"
+        outfile.close
+    }
+    myfile >> savedata // writes the information from the file to a buffer for later use
+    myfile.close;
     // Define some constants
     const float pi = 3.14159f;
     const int gameWidth = 800;
