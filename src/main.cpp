@@ -24,16 +24,28 @@ SOFTWARE.
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
-#include <cmath>
-#include <ctime>
-#include <cstdlib>
 #include <iostream>
+printf("iostream added");
+printf("adding sfml graphics");
+#include <SFML/Graphics.hpp>
+printf("sfml graphics added");
+printf("adding sfml audio");
+#include <SFML/Audio.hpp>
+printf("sfml audio added\nadding cmath");
+#include <cmath>
+printf("added cmath\nadding ctime");
+#include <ctime>
+printf("added ctime\nadding cstdlib");
+#include <cstdlib>
+printf("added cstdlib\nadding string");
 #include <string>
-//#include <fstream>
+printf("added string\nadding fstream");
+#include <fstream>
+printf("added fstream\nadding bittendef.h");
 #include "bittendef.h"
+printf("added bittendef.h\nadding version.h")
 #include "version.h"
+printf("added version.h\nALL HEADERS LOADED")
 ////////////////////////////////////////////////////////////
 /// Entry point of application
 ///
