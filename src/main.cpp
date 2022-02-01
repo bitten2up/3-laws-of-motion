@@ -60,7 +60,7 @@ int main()
     #endif
     string savedata = ""; // init the savedata var for storage
     ifstream myfile("bitten.sav", ios::in); // open the savefile
-    if (!myfile.is_open){
+    if (myfile.is_open == false){
         std::ofstream outfile ("bitten.sav");
         outfile << "[bitten engine save file]\n";
         outfile.close();
