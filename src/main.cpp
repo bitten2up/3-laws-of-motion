@@ -63,10 +63,10 @@ int main()
     if (!myfile.isOpen){
         std::ofstream outfile ("bitten.sav");
         outfile << "[bitten engine save file]\n";
-        outfile.close;
+        outfile.close();
     }
     myfile >> savedata; // writes the information from the file to a buffer for later use
-    myfile.close;
+    myfile.close();
     // Define some constants
     const float pi = 3.14159f;
     const int gameWidth = 800;
