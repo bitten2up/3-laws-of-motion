@@ -31,7 +31,7 @@ SOFTWARE.
 #include <cstdlib>
 #include <iostream>
 #include <string>
-#include <fstream.h>
+#include <fstream>
 #include "bittendef.h"
 #include "version.h"
 ////////////////////////////////////////////////////////////
