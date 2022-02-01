@@ -91,7 +91,7 @@ int main()
         std::ofstream outfile ("law2/a.txt");
         outfile << 1;
         outfile.close();
-        std::cout <<  "you can edit the values in the law 2 folder then edit the text to the value you want, ONLY USE INTERGERS DON'T PUT THE UNITS" << std::endl
+        std::cout <<  "you can edit the values in the law 2 folder then edit the text to the value you want, ONLY USE INTERGERS DON'T PUT THE UNITS" << std::endl;
     }
     myfile >> acceleration;
     myfile.close();
