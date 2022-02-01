@@ -62,10 +62,10 @@ int main()
     ifstream myfile("bitten.sav", ios::in); // open the savefile
     if (!myfile.isOpen){
         std::ofstream outfile ("bitten.sav");
-        outfile << "[bitten engine save file]\n"
-        outfile.close
+        outfile << "[bitten engine save file]\n";
+        outfile.close;
     }
-    myfile >> savedata // writes the information from the file to a buffer for later use
+    myfile >> savedata; // writes the information from the file to a buffer for later use
     myfile.close;
     // Define some constants
     const float pi = 3.14159f;
