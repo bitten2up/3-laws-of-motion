@@ -73,7 +73,7 @@ int main()
     const int gameHeight = 600;
     sf::Vector2f paddleSize(25, 25);
     float ballRadius = 10.f;
-    cout << savedata << endl
+    cout << savedata << endl;
     // define map loading (unused at the moment for the prototype)
     // ofstream map;
     // Create the window of the application
