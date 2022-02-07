@@ -231,6 +231,7 @@ int main()
         if (isPlaying)
         {
             float deltaTime = clock.restart().asSeconds();
+            pauseMessage.setString("An object in rest will stay in rest,\n an object in motion will stay in motion unless an unballenced force happened");
             if (ballmove){
 		    float factor = ballSpeed * deltaTime;
                  ball.move(std::cos(ballAngle) * factor, std::sin(ballAngle) * factor);
@@ -357,12 +358,12 @@ int main()
                 ball.setPosition(gameWidth / 5, gameHeight / 5);
 		        battle = true;
 		        battleText.setCharacterSize(10);
-		        pauseMessage.setString("An object in rest will stay in rest,\n an object in motion will stay in motion unless an unballenced force happened");
                 leftPaddle.setPosition(10 + paddleSize.x / 2, gameHeight / 2);
                 crusor.setPosition(100 + paddleSize.x / 2, gameHeight - paddleSize.y);
                 crusor.rotate(45);
                 ballmove = false;
 		        isPlaying = false;
+                law2=true;
             }
             if (ball.getPosition().y - ballRadius < 0.f)
             {
@@ -456,6 +457,84 @@ int main()
 		    else{
 			    movePaddle = true;
 			}
+            if (ball.getPosition().x + ballRadius > gameWidth)
+            {
+                
+                leftPaddle.setPosition(10.f, 50.f);
+                rightPaddle.setPosition(gameWidth - 10 - paddleSize.x / 2, gameHeight / 2);
+                ball.setPosition(gameWidth / 5, gameHeight / 5);
+		        battle = true;
+		        battleText.setCharacterSize(10);
+		        pauseMessage.setString("An object in rest will stay in rest,\n an object in motion will stay in motion unless an unballenced force happened");
+                leftPaddle.setPosition(10 + paddleSize.x / 2, gameHeight / 2);
+                crusor.setPosition(100 + paddleSize.x / 2, gameHeight - paddleSize.y);
+                crusor.rotate(45);
+                ballmove = false;
+		        law2 = false;
+                law3=true;
+                paddlemove = true;
+            }
+	    }
+        else if(law3){
+            float deltaTime = clock.restart().asSeconds();
+            pauseMessage.setString("law 2: F=ma");
+            if (ballmove){
+		        float factor = ballSpeed * deltaTime;
+                ball.move(std::cos(ballAngle) * factor, std::sin(ballAngle) * factor);
+            }
+		    pauseMessage.setString("law 3: action reaction");
+		    //we don't need movement here sence this is automated
+		    if (m*a > F &&
+		        !ball.getPosition().x - ballRadius < leftPaddle.getPosition().x + paddleSize.x / 2 &&
+                !ball.getPosition().x - ballRadius > leftPaddle.getPosition().x &&
+                !ball.getPosition().y + ballRadius >= leftPaddle.getPosition().y - paddleSize.y / 2 &&
+                !ball.getPosition().y - ballRadius <= leftPaddle.getPosition().y + paddleSize.y / 2){
+                    if (movePaddle){
+			            leftPaddle.move(paddleSpeed * deltaTime, 0.f);
+                    }
+		    }
+            else if (m*a > F &&
+		        ball.getPosition().x - ballRadius < leftPaddle.getPosition().x + paddleSize.x / 2 &&
+                ball.getPosition().x - ballRadius > leftPaddle.getPosition().x &&
+                ball.getPosition().y + ballRadius >= leftPaddle.getPosition().y - paddleSize.y / 2 &&
+                ball.getPosition().y - ballRadius <= leftPaddle.getPosition().y + paddleSize.y / 2){
+                    movePaddle=false;
+                    cout << "tbh " << m*a << " is greater than " << F;
+		    }
+		    else if(ball.getPosition().x - ballRadius < leftPaddle.getPosition().x + paddleSize.x / 2 &&
+                    ball.getPosition().x - ballRadius > leftPaddle.getPosition().x &&
+                    ball.getPosition().y + ballRadius >= leftPaddle.getPosition().y - paddleSize.y / 2 &&
+                    ball.getPosition().y - ballRadius <= leftPaddle.getPosition().y + paddleSize.y / 2){
+			    ballmove=true;
+			    movePaddle=false;
+		    }
+		    else if(movePaddle){
+			    leftPaddle.move(paddleSpeed * deltaTime, 0.f);
+		    }
+            else if (ballmove){
+		        float factor = ballSpeed * deltaTime;
+                ball.move(std::cos(ballAngle) * factor, std::sin(ballAngle) * factor);
+            }
+		    else{
+			    movePaddle = true;
+			}
+            if (ball.getPosition().x + ballRadius > gameWidth)
+            {
+                
+                leftPaddle.setPosition(10.f, 50.f);
+                rightPaddle.setPosition(gameWidth - 10 - paddleSize.x / 2, gameHeight / 2);
+                ball.setPosition(gameWidth / 5, gameHeight / 5);
+		        battle = true;
+		        battleText.setCharacterSize(10);
+		        pauseMessage.setString("An object in rest will stay in rest,\n an object in motion will stay in motion unless an unballenced force happened");
+                leftPaddle.setPosition(10 + paddleSize.x / 2, gameHeight / 2);
+                crusor.setPosition(100 + paddleSize.x / 2, gameHeight - paddleSize.y);
+                crusor.rotate(45);
+                ballmove = false;
+		        law2 = false;
+                law3=true;
+                paddlemove = true;
+            }
 	    }
         // Clear the window
         window.clear(sf::Color(0, 0, 0));
