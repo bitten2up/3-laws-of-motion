@@ -206,9 +206,9 @@ int main()
     }
     sf::Sprite creditsprite;
     creditsprite.setTexture(texture);
-    sf::FloatRect spriteSize=sprite.getGlobalBounds();
-    sprite.setOrigin(spriteSize.width/2.,spriteSize.height/2.);
-    sprite.setPosition(window.getSize().x/2., window.getSize().y/2.);
+    sf::FloatRect spriteSize=creditsprite.getGlobalBounds();
+    creditsprite.setOrigin(creditspriteSize.width/2.,creditspriteSize.height/2.);
+    creditsprite.setPosition(window.getSize().x/20., window.getSize().y/20.);
 
     // Define the paddles properties
     sf::Clock AITimer;
@@ -611,7 +611,7 @@ int main()
             window.draw(pauseMessage);
             window.draw(leftPaddle);
             window.draw(ball);
-            window.draw(sprite);
+            window.draw(creditsprite);
             //#endif
         }
 
