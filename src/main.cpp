@@ -393,7 +393,32 @@ int main()
 
                 ballSound.play();
                 ball.setPosition(rightPaddle.getPosition().x - ballRadius - paddleSize.x / 2 - 0.1f, ball.getPosition().y);
-            }
+	    }
+	    elif(law2){
+		    pauseMessage.setString("law 2: F=ma");
+		    //we don't need movement here sence this is automated
+		    if (m*a < F &&
+		       !ball.getPosition().x - ballRadius < leftPaddle.getPosition().x + paddleSize.x / 2 &&
+                       !ball.getPosition().x - ballRadius > leftPaddle.getPosition().x &&
+                       !ball.getPosition().y + ballRadius >= leftPaddle.getPosition().y - paddleSize.y / 2 &&
+                       !ball.getPosition().y - ballRadius <= leftPaddle.getPosition().y + paddleSize.y / 2){
+			    leftPaddle.move(paddleSpeed * deltaTime, 0.f);
+			    
+		    }
+		    elif(ball.getPosition().x - ballRadius < leftPaddle.getPosition().x + paddleSize.x / 2 &&
+                         ball.getPosition().x - ballRadius > leftPaddle.getPosition().x &&
+                         ball.getPosition().y + ballRadius >= leftPaddle.getPosition().y - paddleSize.y / 2 &&
+                         ball.getPosition().y - ballRadius <= leftPaddle.getPosition().y + paddleSize.y / 2){
+			    ballMove=true;
+			    paddleMove=false;
+		    }
+		    elif(paddleMove){
+			    leftPaddle.move(paddleSpeed * deltaTime, 0.f);
+		    }
+		    else{
+			    bool paddleMove=true
+			    }
+	    }
 	    #endif
 	    #ifdef debug
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::X)){
