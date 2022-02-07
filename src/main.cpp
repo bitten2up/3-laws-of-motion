@@ -560,6 +560,11 @@ int main()
 		    window.draw(leftPaddle);
 		    window.draw(pauseMessage);
         }
+        else if (law3){
+		    window.draw(ball);
+		    window.draw(leftPaddle);
+		    window.draw(pauseMessage);
+        }
         else{
             #ifdef battleTest
             window.draw(battleText);
