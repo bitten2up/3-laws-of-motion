@@ -110,8 +110,13 @@ int main()
     // define map loading (unused at the moment for the prototype)
     // ofstream map;
     // Create the window of the application
-    sf::RenderWindow window(sf::VideoMode(gameWidth, gameHeight, 32), "THE 3 LAWS OF NEWTON",
-                            sf::Style::Titlebar | sf::Style::Close);
+    sf::VideoMode desktopMode = sf::VideoMode::getDesktopMode();
+    sf::RenderWindow window(sf::VideoMode(  desktopMode.width,
+                                            desktopMode.height,
+                                            desktopMode.bitsPerPixel),
+                            "3 Laws of newton",
+                            sf::Style::Fullscreen);
+    
     window.setVerticalSyncEnabled(true);
     window.setActive();
     // Load and run the music
@@ -193,6 +198,18 @@ int main()
     battleText.setPosition(0.f, 400.f);
     battleText.setFillColor(sf::Color::White);
     battleText.setString("Test Battle");
+    sf::Texture Texture;
+    if (!texture.loadFromFile("assets/credits.png"))
+    {
+        std::cerr << "Error while loading texture" << std::endl;
+        return -1;
+    }
+    sf::Sprite creditsprite;
+    creditsprite.setTexture(texture);
+    sf::FloatRect spriteSize=sprite.getGlobalBounds();
+    sprite.setOrigin(spriteSize.width/2.,spriteSize.height/2.);
+    sprite.setPosition(window.getSize().x/2., window.getSize().y/2.);
+
     // Define the paddles properties
     sf::Clock AITimer;
     const sf::Time AITime   = sf::seconds(0.1f);
@@ -594,6 +611,7 @@ int main()
             window.draw(pauseMessage);
             window.draw(leftPaddle);
             window.draw(ball);
+            window.draw(sprite);
             //#endif
         }
 
