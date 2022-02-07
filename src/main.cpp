@@ -569,6 +569,7 @@ int main()
 	       else {
              window.draw(ball);
             }
+            window.draw(pauseMessage);
 	    } else if (law2){
 		    window.draw(ball);
 		    window.draw(leftPaddle);
