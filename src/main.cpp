@@ -198,7 +198,7 @@ int main()
     battleText.setPosition(0.f, 400.f);
     battleText.setFillColor(sf::Color::White);
     battleText.setString("Test Battle");
-    sf::Texture Texture;
+    sf::Texture texture;
     if (!texture.loadFromFile("assets/credits.png"))
     {
         std::cerr << "Error while loading texture" << std::endl;
