@@ -186,7 +186,7 @@ int main()
     sf::Text battleText;
     battleText.setFont(font);
     battleText.setCharacterSize(30);
-    battleText.setPosition(170.f, 400.f);
+    battleText.setPosition(0.f, 400.f);
     battleText.setFillColor(sf::Color::White);
     battleText.setString("Test Battle");
     // Define the paddles properties
@@ -422,7 +422,11 @@ int main()
 	       else {
              window.draw(ball);
             }
-        }
+	}
+	elif (law2){
+		window.draw(ball);
+		window.draw(rightPaddle);
+		window.draw(pauseMessage);
         else
         {
             #ifdef battleTest
