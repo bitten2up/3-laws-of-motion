@@ -179,7 +179,7 @@ int main()
     sf::Text pauseMessage;
     pauseMessage.setFont(font);
     pauseMessage.setCharacterSize(20);
-    pauseMessage.setPosition(170.f, 150.f);
+    pauseMessage.setPosition(10.f, 150.f);
     pauseMessage.setFillColor(sf::Color::White);
     pauseMessage.setString("THE 3 LAWS OF NEWTON");
     // Initilize the opponet text for battles
@@ -236,6 +236,7 @@ int main()
 		    float factor = ballSpeed * deltaTime;
                  ball.move(std::cos(ballAngle) * factor, std::sin(ballAngle) * factor);
             }
+
             if(!battle){ // revoke player movement in battles, we will using a different object for menu and we don't want the player moving in the menus, if it is not an battle you can move normaly
                 // Move the player's paddle
                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) &&
@@ -545,9 +546,7 @@ int main()
             }
 	    } else{
             pauseMessage.setString("Credits");
-            battleText.setString("Built on sfml https://sfml-dev.org and cpp\n'Bitten engine' by Sean Tipton (bitten1up): https://github.com/litten2up/bittens-adventure\nProject for Ms Gonzalez 8th grade science class\nMusic by Sean Tipton (bitten1up)\nSource code on github at https://github.com/litten2up/bittens-adventure\nPlease don't get mad at me for taking soo long it is like a week late lol\n now a word from our sponsors Raid bug spray: keep the bugs out from your house with RAID");
-
-            
+            battleText.setString("Built on sfml https://sfml-dev.org and cpp\n \n'Bitten engine' by Sean Tipton (bitten1up): \nhttps://github.com/litten2up/bittens-adventure\n \nProject for Ms Gonzalez 8th grade science class\n \nMusic by Sean Tipton (bitten1up)\n\nSource code on github at https://github.com/litten2up/3-laws-of-motion\n\nPlease don't get mad at me for taking soo long it is like a week late lol\n\nnow a word from our sponsors Raid bug spray: keep the bugs out from your house with RAID");            
         }
         // Clear the window
         window.clear(sf::Color(0, 0, 0));
@@ -556,6 +555,7 @@ int main()
         {
             // Draw the paddles and the ball
            window.draw(leftPaddle);
+           window.draw(pauseMessage);
 	       #ifdef drawall
            window.draw(rightPaddle);
 	       #endif
@@ -568,7 +568,7 @@ int main()
 	       else {
              window.draw(ball);
             }
-            window.draw(pauseMessage);
+            
 	    } else if (law2){
 		    window.draw(ball);
 		    window.draw(leftPaddle);
