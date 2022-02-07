@@ -364,6 +364,9 @@ int main()
                 ballmove = false;
 		        isPlaying = false;
                 law2=true;
+                leftPaddle.setPosition(10 + paddleSize.x / 2, gameHeight / 2);
+                rightPaddle.setPosition(gameWidth - 10 - paddleSize.x / 2, gameHeight / 2);
+                ball.setPosition(gameWidth / 2, gameHeight / 2);
             }
             if (ball.getPosition().y - ballRadius < 0.f)
             {
@@ -473,6 +476,9 @@ int main()
 		        law2 = false;
                 law3=true;
                 movePaddle = true;
+                leftPaddle.setPosition(10 + paddleSize.x / 2, gameHeight / 2);
+                rightPaddle.setPosition(gameWidth - 10 - paddleSize.x / 2, gameHeight / 2);
+                ball.setPosition(gameWidth / 2, gameHeight / 2);
             }
 	    }
         else if(law3){
@@ -534,8 +540,16 @@ int main()
 		        law2 = false;
                 law3=true;
                 movePaddle = true;
+                leftPaddle.setPosition(10 + paddleSize.x / 2, gameHeight / 2);
+                rightPaddle.setPosition(gameWidth - 10 - paddleSize.x / 2, gameHeight / 2);
+                ball.setPosition(gameWidth / 2, gameHeight / 2);
             }
-	    }
+	    } else{
+            pauseMessage.setString("Credits");
+            battleText.setString("Built on sfml https://sfml-dev.org and cpp\n'Bitten engine' by Sean Tipton (bitten1up): https://github.com/litten2up/bittens-adventure\nProject for Ms Gonzalez 8th grade science class\nMusic by Sean Tipton (bitten1up)\nSource code on github at https://github.com/litten2up/bittens-adventure\nPlease don't get mad at me for taking soo long it is like a week late lol\n now a word from our sponsors Raid bug spray: keep the bugs out from your house with RAID");
+
+            
+        }
         // Clear the window
         window.clear(sf::Color(0, 0, 0));
 
@@ -566,13 +580,15 @@ int main()
 		    window.draw(pauseMessage);
         }
         else{
-            #ifdef battleTest
+            //#ifdef battleTest
             window.draw(battleText);
-            #endif
-            #ifndef battleTest
+            //#endif
+            //#ifndef battleTest
             // Draw the pause message
             window.draw(pauseMessage);
-            #endif
+            window.draw(leftPaddle);
+            window.draw(ball);
+            //#endif
         }
 
         // Display things on screen
