@@ -207,7 +207,7 @@ int main()
     sf::Sprite creditsprite;
     creditsprite.setTexture(texture);
     sf::FloatRect spriteSize=creditsprite.getGlobalBounds();
-    creditsprite.setOrigin(creditspriteSize.width/2.,creditspriteSize.height/2.);
+    creditsprite.setOrigin(spriteSize.width/2.,spriteSize.height/2.);
     creditsprite.setPosition(window.getSize().x/20., window.getSize().y/20.);
 
     // Define the paddles properties
