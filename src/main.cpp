@@ -472,7 +472,7 @@ int main()
                 ballmove = false;
 		        law2 = false;
                 law3=true;
-                paddlemove = true;
+                movePaddle = true;
             }
 	    }
         else if(law3){
@@ -533,7 +533,7 @@ int main()
                 ballmove = false;
 		        law2 = false;
                 law3=true;
-                paddlemove = true;
+                movePaddle = true;
             }
 	    }
         // Clear the window
