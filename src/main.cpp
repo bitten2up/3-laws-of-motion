@@ -537,8 +537,7 @@ int main()
                 crusor.setPosition(100 + paddleSize.x / 2, gameHeight - paddleSize.y);
                 crusor.rotate(45);
                 ballmove = false;
-		        law2 = false;
-                law3=true;
+		        law3 = false;
                 movePaddle = true;
                 leftPaddle.setPosition(10 + paddleSize.x / 2, gameHeight / 2);
                 rightPaddle.setPosition(gameWidth - 10 - paddleSize.x / 2, gameHeight / 2);
