@@ -38,6 +38,7 @@ SOFTWARE.
 #include <thread>
 using namespace std;
 using namespace std::chrono;
+using namespace std::this_thread;                                       
 ////////////////////////////////////////////////////////////
 /// Entry point of application
 ///
