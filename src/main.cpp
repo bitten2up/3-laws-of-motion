@@ -38,7 +38,7 @@ SOFTWARE.
 #include <thread>
 using namespace std;
 using namespace std::chrono;
-using namespace std::this_thread;                                       
+using namespace std::this_thread;
 ////////////////////////////////////////////////////////////
 /// Entry point of application
 ///
@@ -552,7 +552,7 @@ int main()
             }
 	    } else{
             pauseMessage.setString("Credits");
-            battleText.setString("Built on sfml https://sfml-dev.org and cpp\n \n'Bitten engine' by Sean Tipton (bitten1up): \nhttps://github.com/litten2up/bittens-adventure\n \nProject for Ms Gonzalez 8th grade science class\n \nMusic by Sean Tipton (bitten1up)\n\nSource code on github at https://github.com/litten2up/3-laws-of-motion\n\nPlease don't get mad at me for taking soo long it is like a week late lol\n\nnow a word from our sponsors Raid bug spray: keep the bugs out from your house with RAID");            
+            battleText.setString("Built on sfml https://sfml-dev.org and cpp\n \n'Bitten engine' by Sean Tipton (bitten1up): \nhttps://github.com/litten2up/bittens-adventure\n \nProject for Ms Gonzalez 8th grade science class\n \nMusic by Sean Tipton (bitten1up)\n \nSource code on github at https://github.com/litten2up/3-laws-of-motion\n \nPlease don't get mad at me for taking soo long it is like a week late lol\n \nnow a word from our sponsors Raid bug spray:\n keep the bugs out from your house with RAID");
         }
         // Clear the window
         window.clear(sf::Color(0, 0, 0));
