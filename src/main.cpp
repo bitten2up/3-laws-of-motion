@@ -37,6 +37,7 @@ SOFTWARE.
 #include <chrono>
 #include <thread>
 using namespace std;
+using namespace std::chrono;
 ////////////////////////////////////////////////////////////
 /// Entry point of application
 ///
