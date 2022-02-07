@@ -63,30 +63,30 @@ int main()
     ifstream myfile("bitten.sav", ios::in); // open the savefile
     if (!myfile.is_open()){
         std::ofstream outfile ("bitten.sav");
-        outfile << "[bitten-engine-save-file]\n";
+        outfile << "[bitten-engine-save-file]";
         outfile.close();
     }
     myfile >> savedata; // writes the information from the file to a buffer for later use
     myfile.close();
-    int force = 1;
+    int F = 1;
     ifstream forcefile("law2/F.txt", ios::in); // open the savefile
     if (!forcefile.is_open()){
         std::ofstream outfile1 ("law2/F.txt");
         outfile1 << 1;
         outfile1.close();
     }
-    forcefile >> force;
+    forcefile >> F;
     forcefile.close();
-    int mass = 1;
+    int m = 1;
     ifstream myfile2("law2/m.txt", ios::in); // open the savefile
     if (!myfile2.is_open()){
         std::ofstream outfile2 ("law2/m.txt");
         outfile2 << 1;
         outfile2.close();
     }
-    myfile2 >> mass;
+    myfile2 >> m;
     myfile2.close();
-    int acceleration = 1;
+    int a = 1;
     ifstream myfile3("law2/a.txt", ios::in); // open the savefile
     if (!myfile3.is_open()){
         std::ofstream outfile3 ("law2/a.txt");
@@ -94,7 +94,7 @@ int main()
         outfile3.close();
         std::cout <<  "you can edit the values in the law 2 folder then edit the text to the value you want, ONLY USE INTERGERS DON'T PUT THE UNITS" << std::endl;
     }
-    myfile3 >> acceleration;
+    myfile3 >> a;
     myfile3.close();
     // Define some constants
     const float pi = 3.14159f;
@@ -201,6 +201,15 @@ int main()
     bool isPlaying = true;
     bool law2 = false;
     bool law3 = false;
+    bool movePaddle=false;
+    if(savedata == "[bitten-engine-save-file]<law2>"){
+        isPlaying=false;
+        law2=true;
+    }
+    else if(savedata == "[bitten-engine-save-file]<law3>"){
+        isPlaying=false;
+        law3=true;
+    }
     leftPaddle.setPosition(10 + paddleSize.x / 2, gameHeight / 2);
     rightPaddle.setPosition(gameWidth - 10 - paddleSize.x / 2, gameHeight / 2);
     ball.setPosition(gameWidth / 2, gameHeight / 2);
@@ -223,7 +232,7 @@ int main()
         {
             float deltaTime = clock.restart().asSeconds();
             if (ballmove){
-		 float factor = ballSpeed * deltaTime;
+		    float factor = ballSpeed * deltaTime;
                  ball.move(std::cos(ballAngle) * factor, std::sin(ballAngle) * factor);
             }
             if(!battle){ // revoke player movement in battles, we will using a different object for menu and we don't want the player moving in the menus, if it is not an battle you can move normaly
@@ -251,7 +260,7 @@ int main()
              }
 	     else {
                 // Move the battle crusor
-                if (enemyhp = 0){
+                if (enemyhp == 0){
                     battleText.setString("You won");
                     while(!sf::Keyboard::isKeyPressed(sf::Keyboard::X)){
                     }
@@ -305,7 +314,7 @@ int main()
                     }
                 }
                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::X)){
-                    if (down && left){
+                    if (down && right){
                         enemyhp = enemyhp - 10;
                     }
                 }
@@ -346,20 +355,20 @@ int main()
                 leftPaddle.setPosition(10.f, 50.f);
                 rightPaddle.setPosition(gameWidth - 10 - paddleSize.x / 2, gameHeight / 2);
                 ball.setPosition(gameWidth / 5, gameHeight / 5);
-		battle = true;
-		battleText.setCharacterSize(10);
-		pauseMessage.setString("An object in rest will stay in rest,\n an object in motion will stay in motion unless an unballenced force happened");
+		        battle = true;
+		        battleText.setCharacterSize(10);
+		        pauseMessage.setString("An object in rest will stay in rest,\n an object in motion will stay in motion unless an unballenced force happened");
                 leftPaddle.setPosition(10 + paddleSize.x / 2, gameHeight / 2);
                 crusor.setPosition(100 + paddleSize.x / 2, gameHeight - paddleSize.y);
                 crusor.rotate(45);
                 ballmove = false;
-		isPlaying = false;
+		        isPlaying = false;
             }
             if (ball.getPosition().y - ballRadius < 0.f)
             {
                 ballSound.play();
                 ball.setPosition(ball.getPosition().y, ballRadius + 0.1f);
-		leftPaddle.setPosition(1,1);
+		        leftPaddle.setPosition(1,1);
             }
             if (ball.getPosition().y + ballRadius > gameHeight)
             {
@@ -373,7 +382,7 @@ int main()
                 ball.getPosition().x - ballRadius > leftPaddle.getPosition().x &&
                 ball.getPosition().y + ballRadius >= leftPaddle.getPosition().y - paddleSize.y / 2 &&
                 ball.getPosition().y - ballRadius <= leftPaddle.getPosition().y + paddleSize.y / 2)
-	    {
+	        {
 
                 ballSound.play();
                 ball.setPosition(leftPaddle.getPosition().x + ballRadius + paddleSize.x / 2 + 0.1f, ball.getPosition().y);
@@ -394,31 +403,7 @@ int main()
                 ballSound.play();
                 ball.setPosition(rightPaddle.getPosition().x - ballRadius - paddleSize.x / 2 - 0.1f, ball.getPosition().y);
 	    }
-	    elif(law2){
-		    pauseMessage.setString("law 2: F=ma");
-		    //we don't need movement here sence this is automated
-		    if (m*a < F &&
-		       !ball.getPosition().x - ballRadius < leftPaddle.getPosition().x + paddleSize.x / 2 &&
-                       !ball.getPosition().x - ballRadius > leftPaddle.getPosition().x &&
-                       !ball.getPosition().y + ballRadius >= leftPaddle.getPosition().y - paddleSize.y / 2 &&
-                       !ball.getPosition().y - ballRadius <= leftPaddle.getPosition().y + paddleSize.y / 2){
-			    leftPaddle.move(paddleSpeed * deltaTime, 0.f);
-			    
-		    }
-		    elif(ball.getPosition().x - ballRadius < leftPaddle.getPosition().x + paddleSize.x / 2 &&
-                         ball.getPosition().x - ballRadius > leftPaddle.getPosition().x &&
-                         ball.getPosition().y + ballRadius >= leftPaddle.getPosition().y - paddleSize.y / 2 &&
-                         ball.getPosition().y - ballRadius <= leftPaddle.getPosition().y + paddleSize.y / 2){
-			    ballMove=true;
-			    paddleMove=false;
-		    }
-		    elif(paddleMove){
-			    leftPaddle.move(paddleSpeed * deltaTime, 0.f);
-		    }
-		    else{
-			    bool paddleMove=true
-			    }
-	    }
+	    
 	    #endif
 	    #ifdef debug
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::X)){
@@ -428,6 +413,50 @@ int main()
 	    #endif
 	    
         }
+        else if(law2){
+            float deltaTime = clock.restart().asSeconds();
+            pauseMessage.setString("law 2: F=ma");
+            if (ballmove){
+		        float factor = ballSpeed * deltaTime;
+                ball.move(std::cos(ballAngle) * factor, std::sin(ballAngle) * factor);
+            }
+		    pauseMessage.setString("law 2: F=ma");
+		    //we don't need movement here sence this is automated
+		    if (m*a > F &&
+		        !ball.getPosition().x - ballRadius < leftPaddle.getPosition().x + paddleSize.x / 2 &&
+                !ball.getPosition().x - ballRadius > leftPaddle.getPosition().x &&
+                !ball.getPosition().y + ballRadius >= leftPaddle.getPosition().y - paddleSize.y / 2 &&
+                !ball.getPosition().y - ballRadius <= leftPaddle.getPosition().y + paddleSize.y / 2){
+                    if (movePaddle){
+			            leftPaddle.move(paddleSpeed * deltaTime, 0.f);
+                    }
+		    }
+            else if (m*a > F &&
+		        ball.getPosition().x - ballRadius < leftPaddle.getPosition().x + paddleSize.x / 2 &&
+                ball.getPosition().x - ballRadius > leftPaddle.getPosition().x &&
+                ball.getPosition().y + ballRadius >= leftPaddle.getPosition().y - paddleSize.y / 2 &&
+                ball.getPosition().y - ballRadius <= leftPaddle.getPosition().y + paddleSize.y / 2){
+                    movePaddle=false;
+                    cout << "tbh " << m*a << " is greater than " << F;
+		    }
+		    else if(ball.getPosition().x - ballRadius < leftPaddle.getPosition().x + paddleSize.x / 2 &&
+                    ball.getPosition().x - ballRadius > leftPaddle.getPosition().x &&
+                    ball.getPosition().y + ballRadius >= leftPaddle.getPosition().y - paddleSize.y / 2 &&
+                    ball.getPosition().y - ballRadius <= leftPaddle.getPosition().y + paddleSize.y / 2){
+			    ballmove=true;
+			    movePaddle=false;
+		    }
+		    else if(movePaddle){
+			    leftPaddle.move(paddleSpeed * deltaTime, 0.f);
+		    }
+            else if (ballmove){
+		        float factor = ballSpeed * deltaTime;
+                ball.move(std::cos(ballAngle) * factor, std::sin(ballAngle) * factor);
+            }
+		    else{
+			    movePaddle = true;
+			}
+	    }
         // Clear the window
         window.clear(sf::Color(0, 0, 0));
 
@@ -440,20 +469,19 @@ int main()
 	       #endif
 	       if (battle){
 		       window.draw(rightPaddle);
-             	       window.draw(battleText);
+               window.draw(battleText);
 		       window.draw(crusor);
 
 	       }
 	       else {
              window.draw(ball);
             }
-	}
-	elif (law2){
-		window.draw(ball);
-		window.draw(rightPaddle);
-		window.draw(pauseMessage);
-        else
-        {
+	    } else if (law2){
+		    window.draw(ball);
+		    window.draw(leftPaddle);
+		    window.draw(pauseMessage);
+        }
+        else{
             #ifdef battleTest
             window.draw(battleText);
             #endif
