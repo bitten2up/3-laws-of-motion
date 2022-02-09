@@ -37,8 +37,6 @@ SOFTWARE.
 #include <chrono>
 #include <thread>
 using namespace std;
-using namespace std::chrono;
-using namespace std::this_thread;
 ////////////////////////////////////////////////////////////
 /// Entry point of application
 ///
@@ -439,7 +437,6 @@ int main()
 	    
         }
         else if(law2){
-            sleep_for(nanoseconds(10));
             float deltaTime = clock.restart().asSeconds();
             pauseMessage.setString("law 2: F=ma");
             if (ballmove){
@@ -504,7 +501,6 @@ int main()
             }
 	    }
         else if(law3){
-            sleep_for(nanoseconds(10));
             float deltaTime = clock.restart().asSeconds();
             pauseMessage.setString("law 2: F=ma");
             if (ballmove){
