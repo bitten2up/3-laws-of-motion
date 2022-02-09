@@ -1,0 +1,23 @@
+1 VERSIONINFO
+FILEVERSION     1,0,0,0
+PRODUCTVERSION  1,0,0,0
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "080904E4"
+    BEGIN
+      VALUE "CompanyName", "Bitten1up"
+      VALUE "FileDescription", "3 laws of newton"
+      VALUE "FileVersion", "1.0"
+      VALUE "InternalName", "newtonlaws"
+      VALUE "LegalCopyright", "Sean Tipton 2022"
+      VALUE "OriginalFilename", "bitten.exe"
+      VALUE "ProductName", "bitten-engine"
+      VALUE "ProductVersion", "1.0"
+    END
+  END
+  BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0x809, 1252
+  END
+END

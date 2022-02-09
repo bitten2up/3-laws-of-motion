@@ -36,7 +36,6 @@ SOFTWARE.
 #include "version.h"
 #include <chrono>
 #include <thread>
-#include "icon.h"
 using namespace std;
 using namespace std::chrono;
 using namespace std::this_thread;
