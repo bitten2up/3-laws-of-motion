@@ -36,6 +36,7 @@ SOFTWARE.
 #include "version.h"
 #include <chrono>
 #include <thread>
+#include "icon.h"
 using namespace std;
 using namespace std::chrono;
 using namespace std::this_thread;
@@ -49,7 +50,6 @@ int main()
 {
     std::srand(static_cast<unsigned int>(std::time(NULL)));
     std::cout << "THE 3 LAWS OF NEWTON\nVersion " << version << std::endl;
-    std::cout << "sources for the information is here: https://www.britannica.com/science/Newtons-laws-of-motion" << std::endl;
     bool battle = false;
     bool up = false;
     bool down = true;
