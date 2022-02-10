@@ -109,8 +109,6 @@ int main()
     myfile3.close();
     // Define some constants
     const float pi = 3.14159f;
-    const int gameWidth = 800;
-    const int gameHeight = 600;
     sf::Vector2f paddleSize(25, 25);
     float ballRadius = 10.f;
     cout << savedata << endl;
@@ -144,6 +142,8 @@ int main()
     music.setLoop(true);         // make it loop
     // Play it
     music.play();
+    gameWidth = window.getSize().x;
+    gameHeight = window.getPosition().y
     // Load the sounds used in the game
     sf::SoundBuffer ballSoundBuffer;
     if (!ballSoundBuffer.loadFromFile("assets/ball.wav")){
