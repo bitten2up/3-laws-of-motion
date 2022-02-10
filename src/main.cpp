@@ -102,7 +102,7 @@ int main()
     ifstream textresfile("textres.cfg", ios::in);
     if (!textresfile.is_open()){
         std::ofstream outfiletext ("textres.cfg");
-        outfiletext << 1;
+        outfiletext << 50;
         outfiletext.close();
     }
     textresfile >> textres;
