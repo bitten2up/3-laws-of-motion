@@ -55,7 +55,7 @@ int main()
     bool ballmove = false;
     // ...
     auto image = sf::Image{};
-    if (!image.loadFromFile("cat.png"))
+    if (!image.loadFromFile("credits.ico"))
     {
     // Error handling...
         return EXIT_FAILURE
@@ -142,8 +142,8 @@ int main()
     music.setLoop(true);         // make it loop
     // Play it
     music.play();
-    gameWidth = window.getSize().x;
-    gameHeight = window.getPosition().y
+    int gameWidth = window.getSize().x;
+    int gameHeight = window.getPosition().y
     // Load the sounds used in the game
     sf::SoundBuffer ballSoundBuffer;
     if (!ballSoundBuffer.loadFromFile("assets/ball.wav")){
