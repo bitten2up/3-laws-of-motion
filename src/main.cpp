@@ -205,7 +205,7 @@ int main()
     // Initialize the pause message
     sf::Text pauseMessage;
     pauseMessage.setFont(font);
-    pauseMessage.setCharacterSize(textres-20);
+    pauseMessage.setCharacterSize(textres/2);
     pauseMessage.setPosition(10.f, 150.f);
     pauseMessage.setFillColor(sf::Color::White);
     pauseMessage.setString("THE 3 LAWS OF NEWTON");
