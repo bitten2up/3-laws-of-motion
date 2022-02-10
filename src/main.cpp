@@ -99,14 +99,14 @@ int main()
     myfile2.close();
     int a = 1;
     int textres = 1;
-    ifstream textres("textres.cfg", ios::in);
-    if (!textres.is_open()){
+    ifstream textresfile("textres.cfg", ios::in);
+    if (!textresfile.is_open()){
         std::ofstream outfiletext ("textres.cfg");
         outfiletext << 1;
         outfiletext.close();
     }
-    textres >> m;
-    textres.close();
+    textresfile >> textres;
+    textresfile.close();
     ifstream myfile3("law2/a.txt", ios::in); // open the savefile
     if (!myfile3.is_open()){
         std::ofstream outfile3 ("law2/a.txt");
