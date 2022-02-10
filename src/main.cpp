@@ -53,6 +53,16 @@ int main()
     bool left = true;
     bool right = false;
     bool ballmove = false;
+    // ...
+    auto image = sf::Image{};
+    if (!image.loadFromFile("cat.png"))
+    {
+    // Error handling...
+        return EXIT_FAILURE
+    }
+
+    
+// ...
     #ifdef debug
     std::cout << "DEBUG VERSION" << std::endl;
     #endif
@@ -116,6 +126,7 @@ int main()
     
     window.setVerticalSyncEnabled(true);
     window.setActive();
+    window.setIcon(image.getSize().x, image.getSize().y, image.getPixelsPtr());
     // Load and run the music
     sf::Music music;
     // Open it from an audio file
