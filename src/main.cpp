@@ -54,8 +54,8 @@ int main()
     bool right = false;
     bool ballmove = false;
     // ...
-    auto image = sf::Image{};
-    if (!image.loadFromFile("bitten.ico"))
+    sf::Image image;
+    if (!image.loadFromFile("assets/bitten.png"))
     {
     // Error handling...
         return EXIT_FAILURE;
@@ -143,7 +143,7 @@ int main()
     // Play it
     music.play();
     int gameWidth = window.getSize().x;
-    int gameHeight = window.getPosition().y;
+    int gameHeight = window.getSize().y;
     // Load the sounds used in the game
     sf::SoundBuffer ballSoundBuffer;
     if (!ballSoundBuffer.loadFromFile("assets/ball.wav")){
@@ -202,7 +202,7 @@ int main()
     // Initilize the opponet text for battles
     sf::Text battleText;
     battleText.setFont(font);
-    battleText.setCharacterSize(30);
+    battleText.setCharacterSize(40);
     battleText.setPosition(0.f, 400.f);
     battleText.setFillColor(sf::Color::White);
     battleText.setString("Test Battle");
@@ -216,7 +216,7 @@ int main()
     creditsprite.setTexture(texture);
     sf::FloatRect spriteSize=creditsprite.getGlobalBounds();
     creditsprite.setOrigin(spriteSize.width/2.,spriteSize.height/2.);
-    creditsprite.setPosition(window.getSize().x/20., window.getSize().y/20.);
+    creditsprite.setPosition(window.getSize().x/20, window.getSize().y/2.);
 
     // Define the paddles properties
     sf::Clock AITimer;
@@ -574,7 +574,9 @@ int main()
                 ball.setPosition(gameWidth / 2, gameHeight / 2);
             }
 	    } else{
+            pauseMessage.setCharacterSize(60);
             pauseMessage.setString("Credits");
+            battleText.setCharacterSize(30);
             battleText.setString("Built on sfml https://sfml-dev.org and cpp\n \n'Bitten engine' by Sean Tipton (bitten1up): \nhttps://github.com/litten2up/bittens-adventure\n \nProject for Ms Gonzalez 8th grade science class\n \nMusic by Sean Tipton (bitten1up)\n \nSource code on github at https://github.com/litten2up/3-laws-of-motion\n \nPlease don't get mad at me for taking soo long it is like a year late lol\n \nnow a word from our sponsors Raid bug spray:\n keep the bugs out from your house with RAID");
         }
         // Clear the window
