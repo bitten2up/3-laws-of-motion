@@ -58,7 +58,7 @@ int main()
     if (!image.loadFromFile("bitten.ico"))
     {
     // Error handling...
-        return EXIT_FAILURE
+        return EXIT_FAILURE;
     }
 
     
@@ -143,7 +143,7 @@ int main()
     // Play it
     music.play();
     int gameWidth = window.getSize().x;
-    int gameHeight = window.getPosition().y
+    int gameHeight = window.getPosition().y;
     // Load the sounds used in the game
     sf::SoundBuffer ballSoundBuffer;
     if (!ballSoundBuffer.loadFromFile("assets/ball.wav")){
