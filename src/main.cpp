@@ -216,7 +216,7 @@ int main()
     creditsprite.setTexture(texture);
     sf::FloatRect spriteSize=creditsprite.getGlobalBounds();
     creditsprite.setOrigin(spriteSize.width/2.,spriteSize.height/2.);
-    creditsprite.setPosition(window.getSize().x/20, window.getSize().y/2.);
+    creditsprite.setPosition(window.getSize().x/2, window.getSize().y/2.);
 
     // Define the paddles properties
     sf::Clock AITimer;
