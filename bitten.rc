@@ -11,9 +11,10 @@ BEGIN
       VALUE "FileVersion", "1.0"
       VALUE "InternalName", "newtonlaws"
       VALUE "LegalCopyright", "Sean Tipton 2022"
-      VALUE "OriginalFilename", "bitten.exe"
+      VALUE "OriginalFilename", "bitten-adventure.exe"
       VALUE "ProductName", "bitten-engine"
       VALUE "ProductVersion", "1.0"
+      VALUE "how-late-it-is", "at-least-10-days-:("
     END
   END
   BLOCK "VarFileInfo"
