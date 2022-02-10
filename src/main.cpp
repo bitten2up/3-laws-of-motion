@@ -55,7 +55,7 @@ int main()
     bool ballmove = false;
     // ...
     auto image = sf::Image{};
-    if (!image.loadFromFile("credits.ico"))
+    if (!image.loadFromFile("bitten.ico"))
     {
     // Error handling...
         return EXIT_FAILURE
