@@ -585,7 +585,7 @@ int main()
 	    } else{
             pauseMessage.setCharacterSize(textres);
             pauseMessage.setString("Credits");
-            battleText.setCharacterSize(textres/2);
+            battleText.setCharacterSize(textres-10);
             battleText.setString("Built on sfml https://sfml-dev.org and cpp\n \n'Bitten engine' by Sean Tipton (bitten1up): \nhttps://github.com/litten2up/bittens-adventure\n \nProject for Ms Gonzalez 8th grade science class\n \nMusic by Sean Tipton (bitten1up)\n \nSource code on github at https://github.com/litten2up/3-laws-of-motion\n \nPlease don't get mad at me for taking soo long it is like a year late lol\n \nnow a word from our sponsors Raid bug spray:\n keep the bugs out from your house with RAID\n\n\n\n\n\n\n\n(this project is not sponsored by raid it is a joke based on youtube raid shadow legends sponserships)");
         }
         // Clear the window
