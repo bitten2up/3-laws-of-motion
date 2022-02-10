@@ -104,6 +104,7 @@ int main()
         std::ofstream outfiletext ("textres.cfg");
         outfiletext << 50;
         outfiletext.close();
+        textres=50;
     }
     textresfile >> textres;
     textresfile.close();
