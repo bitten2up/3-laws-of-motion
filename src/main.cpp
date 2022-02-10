@@ -98,6 +98,15 @@ int main()
     myfile2 >> m;
     myfile2.close();
     int a = 1;
+    int textres = 1;
+    ifstream textres("textres.cfg", ios::in);
+    if (!textres.is_open()){
+        std::ofstream outfiletext ("textres.cfg");
+        outfiletext << 1;
+        outfiletext.close();
+    }
+    textres >> m;
+    textres.close();
     ifstream myfile3("law2/a.txt", ios::in); // open the savefile
     if (!myfile3.is_open()){
         std::ofstream outfile3 ("law2/a.txt");
@@ -195,7 +204,7 @@ int main()
     // Initialize the pause message
     sf::Text pauseMessage;
     pauseMessage.setFont(font);
-    pauseMessage.setCharacterSize(20);
+    pauseMessage.setCharacterSize(textres/2);
     pauseMessage.setPosition(10.f, 150.f);
     pauseMessage.setFillColor(sf::Color::White);
     pauseMessage.setString("THE 3 LAWS OF NEWTON");
@@ -574,9 +583,9 @@ int main()
                 ball.setPosition(gameWidth / 2, gameHeight / 2);
             }
 	    } else{
-            pauseMessage.setCharacterSize(60);
+            pauseMessage.setCharacterSize(textres);
             pauseMessage.setString("Credits");
-            battleText.setCharacterSize(30);
+            battleText.setCharacterSize(textres/2);
             battleText.setString("Built on sfml https://sfml-dev.org and cpp\n \n'Bitten engine' by Sean Tipton (bitten1up): \nhttps://github.com/litten2up/bittens-adventure\n \nProject for Ms Gonzalez 8th grade science class\n \nMusic by Sean Tipton (bitten1up)\n \nSource code on github at https://github.com/litten2up/3-laws-of-motion\n \nPlease don't get mad at me for taking soo long it is like a year late lol\n \nnow a word from our sponsors Raid bug spray:\n keep the bugs out from your house with RAID\n\n\n\n\n\n\n\n(this project is not sponsored by raid it is a joke based on youtube raid shadow legends sponserships)");
         }
         // Clear the window
