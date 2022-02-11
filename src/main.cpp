@@ -585,6 +585,7 @@ int main()
                 
             }
 	    } else{
+            float deltaTime = clock.restart().asSeconds();
             pauseMessage.setCharacterSize(textres);
             pauseMessage.setString("Credits");
             battleText.setCharacterSize(textres-10);
